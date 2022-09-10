@@ -21,57 +21,41 @@ body {
 .conteiner {
   background-color: #F3F5FC;
   border: 1px solid transparent;
-  margin: 0 auto;
   height: 100%;
   width: 100%;
 }
 
 /**/
 .card {
-  margin: 25px;
+  margin: 25px 16px 40px 16px;
 }
 
 /**/
 .card-nav {
-  height: 10.28%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .card-nav img {
-  width: 2rem;
-  height: 3rem;
+  width: 32px;
+  height: 48px;
 }
 
 /**/
 .card-body {
   text-align: center;
-  height: calc(100%-10.28%);
 }
 
 /**/
 .card-text {
   height: 350px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   position: relative;
 }
 
 .card-text textarea {
-  position: absolute;
   height: 85%;
   background-color: #F3F5FC;
   border: 1px solid transparent;
   color: #0A3871;
-  top: 0;
-  left: 0;
   font-size: 32px;
   width: 100%;
   outline: none;
@@ -119,7 +103,7 @@ body {
 
 /**/
 .card-buttons {
-  height: 158px;
+  height: 160px;
 }
 
 .card-buttons .en,
@@ -141,7 +125,6 @@ body {
 
 /**/
 .card-text-encripted {
-  height: 11.625rem;
   border-radius: 2rem;
   background-color: #ffffff;
   margin: 64px .5rem;
@@ -172,14 +155,10 @@ body {
 }
 
 /**/
-.bye_display {
-  display: none;
-}
-
 @media (min-width: 768px) {
   /**/
   .card {
-    margin: 35px;
+    margin: 70px 40px 40px 40px;
   }
   /**/
   .card-nav {
@@ -213,38 +192,59 @@ body {
     margin: 0;
   }
   .card-text-encripted {
-    margin: 0;
+    text-align: center;
+    height: auto;
   }
 }
 
 @media (min-width: 1024px) {
   /**/
   .card {
-    margin-left: 55px;
+    margin: 40px;
+    margin-left: 80px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50px (1fr)[3];
+        grid-template-columns: 50px repeat(3, 1fr);
+    -ms-grid-rows: (200px)[4];
+        grid-template-rows: repeat(4, 200px);
+        grid-template-areas: "nav . . out" ". in in out" ". in in out" ". in in out";
   }
   /**/
+  .card-nav {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: nav;
+  }
   /**/
   .card-body {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-area: in;
+  }
+  .output {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 4;
+    -ms-grid-column: 4;
+    grid-area: out;
+    width: 100%;
   }
   /**/
   .card-text-aux {
-    height: 90%;
+    height: 70%;
     width: 60%;
     margin-left: 3%;
   }
   /**/
+  .card-buttons {
+    width: 400px;
+  }
   .card-buttons .en,
   .card-buttons .de {
     margin-top: 125px;
+    width: 200px;
   }
   .card-text-encripted-aux {
     width: 35%;
@@ -278,6 +278,57 @@ body {
   .card-text-encripted p {
     width: 75%;
   }
+  .card-body {
+    text-align: left;
+  }
+  /**/
+  .card-text {
+    height: 395px;
+    width: 350px;
+  }
+  .card-text ::-webkit-input-placeholder {
+    text-align: left;
+  }
+  .card-text :-ms-input-placeholder {
+    text-align: left;
+  }
+  .card-text ::-ms-input-placeholder {
+    text-align: left;
+  }
+  .card-text ::placeholder {
+    text-align: left;
+  }
+  /**/
+  /**/
+  .card-text-encripted {
+    border-radius: 2rem;
+    width: 400px;
+    height: 800px;
+    background-color: #ffffff;
+    margin: 0 .5rem;
+    margin-bottom: 2.5rem;
+    color: #343A40;
+    padding: 32px;
+    -webkit-box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  }
+  .card-text-encripted h2 {
+    font-weight: 700;
+    font-size: 24px;
+  }
+  .card-text-encripted p {
+    color: #495057;
+    margin-top: 1rem;
+  }
+  .co {
+    background-color: #ffffff;
+    border: 1px solid #0A3871;
+    color: #0A3871;
+    margin-top: 20px;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  /**/
 }
 
 .show {
